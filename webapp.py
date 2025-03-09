@@ -64,7 +64,7 @@ def main():
     OF_time = st.number_input("OF (days)", value=0)
 
     if st.button(label="Submit"):
-        user = Subject(blood_MDRO , DBC, ICU_stay, pan_MDRO, OF_time)
+        user = Subject(blood_MDRO, DBC, ICU_stay, pan_MDRO, OF_time)
         user.make_predict()
 
 main()
