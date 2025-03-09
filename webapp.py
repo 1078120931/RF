@@ -11,7 +11,7 @@ def main():
     best_model = joblib.load('./rf.pkl')
 
     class Subject:
-        def __init__(blood_MDRO, DBC, OF_time, ICU_stay, pan_MDRO):
+        def __init__(self, blood_MDRO, DBC, OF_time, ICU_stay, pan_MDRO):
             self.blood_MDRO = blood_MDRO
             self.DBC = DBC
             self.OF_time = OF_time
