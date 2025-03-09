@@ -11,20 +11,20 @@ def main():
     best_model = joblib.load('./rf.pkl')
 
     class Subject:
-        def __init__(self, blood_MDRO, DBC, OF_time, ICU_stay, pan_MDRO):
-            self.blood_MDRO = blood_MDRO
-            self.DBC = DBC
-            self.OF_time = OF_time
+        def __init__(self, ICU_stay, DBC, pan_MDRO, blood_MDRO, OF_time):
             self.ICU_stay = ICU_stay
+            self.DBC = DBC
             self.pan_MDRO = pan_MDRO
+            self.blood_MDRO = blood_MDRO
+            self.OF_time = OF_time
            
         def make_predict(self):
             subject_data = {
-                "blood_MDRO": [self.blood_MDRO],
-                "DBC": [self.DBC],
-                "OF_time": [self.OF_time],
                 "ICU_stay": [self.ICU_stay],
-                "pan_MDRO": [self.pan_MDRO]
+                "DBC": [self.DBC],
+                "pan_MDRO": [self.pan_MDRO],
+                "blood_MDRO": [self.blood_MDRO],
+                "OF_time": [self.OF_time]
                 }
 
             # Create a DataFrame
@@ -57,14 +57,15 @@ def main():
                     <p class='intro'></p>
                 </div>
                 """, unsafe_allow_html=True)
-    blood_MDRO = st.selectbox("Blood MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
-    DBC = st.selectbox("DBC (IPN only = 0, MCAP=1, SCAP = 2)", [0, 1, 2], index=0)
-    OF_time = st.number_input("OF (days)", value=0)
     ICU_stay=st.selectbox("ICU stay (No = 0, Yes = 1)", [0, 1], index=0)
+    DBC = st.selectbox("DBC (IPN only = 0, MCAP=1, SCAP = 2)", [0, 1, 2], index=0)
     pan_MDRO=st.selectbox("Pus MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
+    blood_MDRO = st.selectbox("Blood MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
+    OF_time = st.number_input("OF (days)", value=0)
+    
 
     if st.button(label="Submit"):
-        user = Subject(blood_MDRO, DBC, OF_time, ICU_stay, pan_MDRO)
+        user = Subject(ICU_stay, DBC, pan_MDRO, blood_MDRO, OF_time)
         user.make_predict()
 
 main()
