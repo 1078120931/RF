@@ -64,7 +64,7 @@ def main():
     pan_MDRO=st.selectbox("Pus MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
 
     if st.button(label="Submit"):
-        user = Subject(blood_MDRO, DBC, ICU_stay, pan_MDRO, OF_time)
+        user = Subject(blood_MDRO, DBC, OF_time, ICU_stay, pan_MDRO)
         user.make_predict()
 
 main()
