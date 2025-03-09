@@ -58,7 +58,7 @@ def main():
                 </div>
                 """, unsafe_allow_html=True)
     ICU_stay=st.selectbox("ICU stay (No = 0, Yes = 1)", [0, 1], index=0)
-    DBC = st.selectbox("DBC (IPN only = 0, MCAP=1, SCAP = 2)", [0, 1, 2], index=0)
+    DBC = st.selectbox("DBC (IPN only = 1, MCAP=2, SCAP = 3)", [1, 2, 3], index=1)
     pan_MDRO=st.selectbox("Pus MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
     blood_MDRO = st.selectbox("Blood MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
     OF_time = st.number_input("OF (days)", value=0)
