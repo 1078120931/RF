@@ -57,11 +57,11 @@ def main():
                     <p class='intro'></p>
                 </div>
                 """, unsafe_allow_html=True)
- blood_MDRO = st.selectbox("Blood MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
- DBC = st.selectbox("DBC (IPN only = 0, MCAP=1, SCAP = 2)", [0, 1, 2], index=0)
-ICU_stay=st.selectbox("ICU stay (No = 0, Yes = 1)", [0, 1], index=0)
-pan_MDRO=st.selectbox("Pus MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
- OF_time = st.number_input("OF (days)", value=0)
+    blood_MDRO = st.selectbox("Blood MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
+    DBC = st.selectbox("DBC (IPN only = 0, MCAP=1, SCAP = 2)", [0, 1, 2], index=0)
+    ICU_stay=st.selectbox("ICU stay (No = 0, Yes = 1)", [0, 1], index=0)
+    pan_MDRO=st.selectbox("Pus MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
+    OF_time = st.number_input("OF (days)", value=0)
 
     if st.button(label="Submit"):
         user = Subject(blood_MDRO , DBC, ICU_stay, pan_MDRO, OF_time)
