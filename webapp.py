@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    best_model = joblib.load('./xbg.pkl')
+    best_model = joblib.load('./xgb.pkl')
 
     class Subject:
         def __init__(self, ICU_stay, pan_MDRO, blood_inf, OF_num, pancreatic_fis, surgery_app):
