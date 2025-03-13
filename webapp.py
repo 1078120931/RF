@@ -64,7 +64,7 @@ def main():
     blood_inf = st.selectbox("Blood infection (No = 0, Yes = 1)", [0, 1], index=0)
     OF_num = st.selectbox("OF (No = 0, Single = 1, Multi=2)", [0, 1, 2], index=0)
     pancreatic_fis = st.selectbox("pancreatic fistula (No = 0, Yes = 1)", [0, 1], index=0)
-    surgery_app = st.selectbox("Surgery opproach (UP = 1, Dowm = 2)", [1, 2], index=0)
+    surgery_app = st.selectbox("Surgery opproach (UP = 1, Down = 2)", [1, 2], index=0)
     
 
     if st.button(label="Submit"):
