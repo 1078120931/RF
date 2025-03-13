@@ -25,7 +25,7 @@ def main():
                 "pan_MDRO": [self.pan_MDRO],
                 "blood_inf": [self.blood_inf],
                 "OF_num": [self.OF_num],
-                "pancreatic_fis": [self.pancreatic_fis]
+                "pancreatic_fis": [self.pancreatic_fis],
                 "surgery_app": [self.surgery_app]
                 }
 
