@@ -48,8 +48,8 @@ def main():
             # 力图
             shap.force_plot(explainer.expected_value, shap_values[0, :], df_subject.iloc[0, :], matplotlib=True)
             # 瀑布图
-            ex = shap.Explanation(shap_values[0, :], explainer.expected_value, df_subject.iloc[0, :])
-            shap.waterfall_plot(ex)
+            #ex = shap.Explanation(shap_values[0, :], explainer.expected_value, df_subject.iloc[0, :])
+            #shap.waterfall_plot(ex)
             st.pyplot(plt.gcf())
 
     st.set_page_config(page_title='IPN hemorrhage')
