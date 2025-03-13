@@ -22,10 +22,11 @@ def main():
         def make_predict(self):
             subject_data = {
                 "ICU_stay": [self.ICU_stay],
-                "DBC": [self.DBC],
                 "pan_MDRO": [self.pan_MDRO],
-                "blood_MDRO": [self.blood_MDRO],
-                "OF_time": [self.OF_time]
+                "blood_inf": [self.blood_inf],
+                "OF_num": [self.OF_num],
+                "pancreatic_fis": [self.pancreatic_fis]
+                "surgery_app": [self.surgery_app]
                 }
 
             # Create a DataFrame
