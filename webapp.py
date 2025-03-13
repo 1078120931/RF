@@ -8,15 +8,16 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    best_model = joblib.load('./rf.pkl')
+    best_model = joblib.load('./xbg.pkl')
 
     class Subject:
-        def __init__(self, ICU_stay, DBC, pan_MDRO, blood_MDRO, OF_time):
+        def __init__(self, ICU_stay, pan_MDRO, blood_inf, OF_num, pancreatic_fis, surgery_app):
             self.ICU_stay = ICU_stay
-            self.DBC = DBC
             self.pan_MDRO = pan_MDRO
-            self.blood_MDRO = blood_MDRO
-            self.OF_time = OF_time
+            self.blood_inf = blood_inf
+            self.OF_num = OF_num
+            self.pancreatic_fis = pancreatic_fis
+            self.surgery_app = surgery_app
            
         def make_predict(self):
             subject_data = {
@@ -57,15 +58,16 @@ def main():
                     <p class='intro'></p>
                 </div>
                 """, unsafe_allow_html=True)
-    ICU_stay=st.selectbox("ICU stay (No = 0, Yes = 1)", [0, 1], index=0)
-    DBC = st.selectbox("DBC (IPN only = 1, MCAP=2, SCAP = 3)", [1, 2, 3], index=1)
+    ICU_stay=st.number_input("ICU stays (days)", value=0)
     pan_MDRO=st.selectbox("Pus MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
-    blood_MDRO = st.selectbox("Blood MDRO infection (No = 0, Yes = 1)", [0, 1], index=0)
-    OF_time = st.number_input("OF (days)", value=0)
+    blood_inf = st.selectbox("Blood infection (No = 0, Yes = 1)", [0, 1], index=0)
+    OF_num = st.selectbox("OF (No = 0, Single = 1, Multi=2)", [0, 1, 2], index=0)
+    pancreatic_fis = st.selectbox("pancreatic fistula (No = 0, Yes = 1)", [0, 1], index=0)
+    surgery_app = st.selectbox("Surgery opproach (UP = 1, Dowm = 2)", [1, 2], index=0)
     
 
     if st.button(label="Submit"):
-        user = Subject(ICU_stay, DBC, pan_MDRO, blood_MDRO, OF_time)
+        user = Subject(ICU_stay, pan_MDRO, blood_inf, OF_num, pancreatic_fis, surgery_app)
         user.make_predict()
 
 main()
